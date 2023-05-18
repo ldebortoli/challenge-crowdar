@@ -2,7 +2,8 @@
 
 Runs in Linux. Not tested on Windows / Mac but maybe works in those OS.
 
-Install
+# Install
+
 1. Clone the repository locally
 2. Install Google Chrome and Firefox
 3. Install python
@@ -12,7 +13,6 @@ Install
 7. Set up environment variables:
     
     Linux:
-    # Crowdar Challenge
 
     export SAUCEDEMO_STANDARD_USERNAME=
     export SAUCEDEMO_STANDARD_PASSWORD=
@@ -34,11 +34,10 @@ On Linux, if you add the variables in the ~/.bashrc file, don't forget to run th
 
     $ source ~/.bashrc
 
-before continuing 
+before continuing.
 
 
-
-Run
+# Run
 
 To run the tests in chrome and firefox write the following command that will run a bash script that is responsible for performing two different test runs, one for each browser:
 
@@ -52,6 +51,6 @@ To run the default version with chrome only write the following command:
     $ pipenv run python -m pytest --html=reports/report-browser.html
 
 
-Reports and Screenshots:
+# Reports and Screenshots
 
 The html reports will be generated in the reports folder, and will include screenshots that are saved inside the screenshot folder.
