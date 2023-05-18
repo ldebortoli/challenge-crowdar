@@ -3,10 +3,16 @@ import re
 from datetime import datetime
 
 
-def delete_files_in_dir(end_text, dir_path, extention):
-    for file in os.listdir(dir_path):
-        if file.endswith(f"{end_text}.{extention}"):
-            os.remove(os.path.join(dir_path, file))
+def delete_reports_in_dir(end_file):
+    for file in os.listdir("reports"):
+        if file.endswith(end_file):
+            os.remove(os.path.join("reports", file))
+
+
+def delete_screenshots_in_dir(start_file, end_file):
+    for file in os.listdir("reports/screenshot"):
+        if file.startsfile(start_file) and file.endswith(end_file):
+            os.remove(os.path.join("reports/screenshot", file))
 
 
 def report_fail_test(report, item, html_plugin):

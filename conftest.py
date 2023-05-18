@@ -1,6 +1,7 @@
 import pytest, os
 
-from src.utils.reports import delete_files_in_dir
+from src.utils.reports import delete_reports_in_dir
+from src.utils.reports import delete_screenshots_in_dir
 from src.utils.reports import report_fail_test
 from src.utils.browser_setup import browser_selection
 
@@ -58,10 +59,10 @@ def clean_old_reports(request):
     browser = request.config.getoption("--browser")
 
     if request.config.option.markexpr == 'api':
-        delete_files_in_dir("api", "reports", "html")
+        delete_reports_in_dir(end_file="api.html")
     else:
-        delete_files_in_dir(browser, "reports", "html")
-        delete_files_in_dir(browser, "reports/screenshots", "png")
+        delete_reports_in_dir(end_file=f"{browser}.html")
+        delete_screenshots_in_dir(start_file=browser, end_file=".png")
 
 
 @pytest.fixture
@@ -79,6 +80,10 @@ def driver(driver_args):
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item):
     html_plugin = item.config.pluginmanager.getplugin("html")
+
     outcome = yield
+    if item.config.option.markexpr == 'api':
+        return
+
     report = outcome.get_result()
     report_fail_test(report, item, html_plugin)
