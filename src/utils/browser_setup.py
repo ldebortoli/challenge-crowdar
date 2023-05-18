@@ -10,11 +10,11 @@ from webdriver_manager.firefox import GeckoDriverManager
 def browser_selection(browser):
     if browser == "chrome":
         driver = webdriver.Chrome(
-            service=ChromeService(ChromeDriverManager().install())
+            service=ChromeService(ChromeDriverManager().install()),
         )
     elif browser == "firefox":
         driver = webdriver.Firefox(
-            service=FirefoxService(GeckoDriverManager().install())
+            service=FirefoxService(GeckoDriverManager().install()),
         )
     elif browser == "edge":
         driver = None

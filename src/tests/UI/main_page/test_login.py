@@ -17,6 +17,7 @@ def product_page(driver):
     yield product_page
 
 
+@pytest.mark.ui
 @pytest.mark.usefixtures("main_page", "product_page", "credentials")
 class TestLogin(BaseTest):
 

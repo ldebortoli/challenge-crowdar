@@ -19,6 +19,12 @@ def pytest_addoption(parser):
         default=False,
         help="Set headless mode"
     )
+    parser.addoption(
+        "--apitesting",
+        action="store_true",
+        default=False,
+        help="Run API tests"
+    )
 
 
 @pytest.fixture
@@ -51,8 +57,11 @@ def credentials(scope='session'):
 def clean_old_reports(request):
     browser = request.config.getoption("--browser")
 
-    delete_files_in_dir(browser, "reports", ".html")
-    delete_files_in_dir(browser, "reports/screenshots", ".png")
+    if request.config.option.markexpr == 'api':
+        delete_files_in_dir("api", "reports", "html")
+    else:
+        delete_files_in_dir(browser, "reports", "html")
+        delete_files_in_dir(browser, "reports/screenshots", "png")
 
 
 @pytest.fixture

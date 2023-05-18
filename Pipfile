@@ -10,6 +10,7 @@ webdriver-manager = "*"
 pytest-xdist = "*"
 pytest-html = "*"
 psutil = "*"
+marshmallow = "*"
 
 [dev-packages]
 

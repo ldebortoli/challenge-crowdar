@@ -1,10 +1,11 @@
-import os, re
+import os
+import re
 from datetime import datetime
 
 
-def delete_files_in_dir(browser, dir_path, extention):
+def delete_files_in_dir(end_text, dir_path, extention):
     for file in os.listdir(dir_path):
-        if file.endswith(extention) and (browser in file):
+        if file.endswith(f"{end_text}.{extention}"):
             os.remove(os.path.join(dir_path, file))
 
 
