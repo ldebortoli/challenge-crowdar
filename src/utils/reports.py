@@ -6,13 +6,21 @@ from datetime import datetime
 def delete_reports_in_dir(end_file):
     for file in os.listdir("reports"):
         if file.endswith(end_file):
-            os.remove(os.path.join("reports", file))
+            delete_file("reports", file)
 
 
 def delete_screenshots_in_dir(start_file, end_file):
-    for file in os.listdir("reports/screenshot"):
-        if file.startsfile(start_file) and file.endswith(end_file):
-            os.remove(os.path.join("reports/screenshot", file))
+    for file in os.listdir("reports/screenshots"):
+        if file.startswith(start_file) and file.endswith(end_file):
+            delete_file("reports/screenshots", file)
+
+
+def delete_file(path, file):
+    try:
+        os.remove(os.path.join(path, file))
+    # This resolves a concurrency bug where 2 or more threads try to delete the file at the same time
+    except OSError:
+        pass
 
 
 def report_fail_test(report, item, html_plugin):

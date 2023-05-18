@@ -1,0 +1,88 @@
+Inicio de sesión:
+
+1) Inicio de sesión válido con usuario standard
+- Abrir la página https://www.saucedemo.com/
+- Colocar el username del usuario standard en el botón de texto "username"
+- Colocar la contraseña del usuario standard en el botón de texto "password"
+- Hacer click en el botón Login
+- Validar que la página de productos haya sido cargada
+- Validar que la url del sitio sea la correcta "https://www.saucedemo.com/inventory.html"
+
+2) Inicio de sesión con contraseña inválida
+- Abrir la página https://www.saucedemo.com/
+- Colocar el username del usuario standard en el botón de texto "username"
+- Colocar una contraseña inválida en el botón de texto "password"
+- Hacer click en el botón Login
+- Validar que no se haya iniciado sesión y que aparezca el mensaje de error "Epic sadface: Username and password do not match any user in this service"
+
+3) Inicio de sesión con usuario inválido
+- Abrir la página https://www.saucedemo.com/
+- Colocar un username inválido en el botón de texto "username"
+- Colocar una contraseña inválida en el botón de texto "password"
+- Hacer click en el botón Login
+- Validar que no se haya iniciado sesión y que aparezca el mensaje de error "Epic sadface: Username and password do not match any user in this service"
+
+4) Inicio de sesión con usuario bloqueado
+- Abrir la página https://www.saucedemo.com/
+- Colocar el username del usuario locked_out en el botón de texto "username"
+- Colocar la contraseña del usuario locked_out en el botón de texto "password"
+- Hacer click en el botón Login
+- Validar que no se haya iniciado sesión y que aparezca el mensaje de error "Epic sadface: Sorry, this user has been locked out."
+
+5) Inicio de sesión con usuario con problemas
+- Abrir la página https://www.saucedemo.com/
+- Colocar el username del usuario problem_user en el botón de texto "username"
+- Colocar la contraseña del usuario problem_user en el botón de texto "password"
+- Hacer click en el botón Login
+- Validar que la página de productos haya sido cargada
+- Validar que la url del sitio sea la correcta "https://www.saucedemo.com/inventory.html"
+
+6) Inicio de sesión con usuario con errores de performance
+- Abrir la página https://www.saucedemo.com/
+- Colocar el username del usuario performance_glitch_user en el botón de texto "username"
+- Colocar la contraseña del usuario performance_glitch_user en el botón de texto "password"
+- Hacer click en el botón Login
+- Validar que la página de productos haya sido cargada por más que tarde
+- Validar que la url del sitio sea la correcta "https://www.saucedemo.com/inventory.html"
+
+
+Agregado de productos al carrito de compras
+
+1) Agregar productos al carrito funciona correctamente
+- Abrir la página https://www.saucedemo.com/
+- Iniciar sesión con las credenciales del usuario standard
+- Buscar el producto "Sauce Labs Backpack" y hacer click en el botón "Add to cart"
+- Hacer click en el ícono del carrido
+- Validar que el producto "Sauce Labs Backpack" esté dentro del carrito 
+
+2) No se puede agregar dos veces el mismo producto en el carrito
+- Abrir la página https://www.saucedemo.com/
+- Iniciar sesión con las credenciales del usuario standard
+- Buscar el producto "Sauce Labs Backpack" y hacer click en el botón "Add to cart"
+- Validar que el botón "Add to cart" del producto "Sauce Labs Backpack" no se encuentre disponible
+
+3) Se pueden remover productos del carrito
+- Abrir la página https://www.saucedemo.com/
+- Iniciar sesión con las credenciales del usuario standard
+- Buscar el producto "Sauce Labs Backpack" y hacer click en el botón "Add to cart"
+- Hacer click en el botón "Remove" del producto "Sauce Labs Backpack"
+- Hacer click en el ícono del carrido
+- Validar que el producto "Sauce Labs Backpack" NO esté dentro del carrito 
+
+4) Productos removidos se pueden volver a agregar
+- Abrir la página https://www.saucedemo.com/
+- Iniciar sesión con las credenciales del usuario standard
+- Buscar el producto "Sauce Labs Backpack" y hacer click en el botón "Add to cart"
+- Hacer click en el botón "Remove" del producto "Sauce Labs Backpack"
+- Hacer click en el botón "Add to cart" del producto "Sauce Labs Backpack"
+- Hacer click en el ícono del carrido
+- Validar que el producto "Sauce Labs Backpack" NO esté dentro del carrito 
+
+5) Múltiples productos se pueden agregar al carrito
+- Abrir la página https://www.saucedemo.com/
+- Iniciar sesión con las credenciales del usuario standard
+- Buscar el producto "Sauce Labs Backpack" y hacer click en el botón "Add to cart"
+- Buscar el producto "Sauce Labs Bike Light" y hacer click en el botón "Add to cart"
+- Buscar el producto "Sauce Labs Onesie" y hacer click en el botón "Add to cart"
+- Hacer click en el ícono del carrido
+- Validar que los productos "Sauce Labs Backpack", "Sauce Labs Bike Light" y "Sauce Labs Onesie" estén dentro del carrito 

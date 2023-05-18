@@ -21,12 +21,23 @@ def product_page(driver):
 @pytest.mark.usefixtures("main_page", "product_page", "credentials")
 class TestLogin(BaseTest):
 
+    # Inicio de sesión válido con usuario standard
     def test_login_standard_user(self, main_page, product_page, credentials):
         main_page.login(
-            credentials["standard_username"],
-            credentials["standard_password"]
+            username=credentials["standard_username"],
+            password=credentials["standard_password"]
         )
 
         assert product_page.title() == "Products"
         assert product_page.driver.current_url == "https://www.saucedemo.com/inventory.html"
-        # assert False
+        assert False
+
+    # Inicio de sesión con contraseña inválida
+    def test_standard_user_wrong_password(self, main_page, credentials):
+        main_page.login(
+            username=credentials["standard_username"],
+            password="Invalid password"
+        )
+
+        assert main_page.get_error_text() == "Epic sadface: Username and password do not match any user in this service"
+        assert main_page.driver.current_url == "https://www.saucedemo.com/"
