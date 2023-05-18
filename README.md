@@ -15,15 +15,19 @@ Runs in Linux. Not tested on Windows / Mac but maybe works in those OS.
     Linux:
 
     export SAUCEDEMO_STANDARD_USERNAME=
+    
     export SAUCEDEMO_STANDARD_PASSWORD=
 
     export SAUCEDEMO_LOCKED_USERNAME=
+    
     export SAUCEDEMO_LOCKED_PASSWORD=
 
     export SAUCEDEMO_PROBLEM_USERNAME=
+    
     export SAUCEDEMO_PROBLEM_PASSWORD=
 
     export SAUCEDEMO_PERFORMANCE_USERNAME=
+    
     export SAUCEDEMO_PERFORMANCE_PASSWORD=
   
 After the "=" place the corresponding value according to those that appear on the page (https://www.saucedemo.com/).
